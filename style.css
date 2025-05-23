@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+}
+
+.logo {
+    width: 15%;
+    height: auto;
+    margin-right: 70%;
+}
+
+.texto-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 10px;
+}
+
+.texto-header h1 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.texto-header .eslogan {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.texto-header p:last-of-type {
+    font-size: 14px;
+}
+
+.eslogan {
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icons a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.secciones {
+    padding: 20px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ofertas {
+    padding: 20px;
+}
+
+.ofertas h2 {
+    margin-bottom: 10px;
+}
+
+.imagenes-ofertas {
+    display: flex;
+    justify-content: space-around;
+}
+
+.imagenes-ofertas img {
+    width: 100px;
+    height: auto;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+footer img {
+    width: 30px;
+    margin: 0 5px;
+}
