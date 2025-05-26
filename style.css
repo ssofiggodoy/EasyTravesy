@@ -4,70 +4,80 @@ body {
     padding: 0;
 }
 
-.barra-superior {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
+
+.logo h1 {
+    height: 45%;
+    font-size: 85%;
+    margin-left: 24%;
+    margin-top: 0%;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.logo {
-    width: 15%;
+.logo img {
+    width: 57%;
     height: auto;
-    margin-right: 70%;
+    margin-left: 4%;
+    margin-top: 4%;
 }
 
-.texto-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-right: 10px;
-}
-
-.texto-header h1 {
-    font-size: 18px;
-    text-align: center;
-}
-
-.texto-header .eslogan {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.texto-header p:last-of-type {
-    font-size: 14px;
+header {
+    display: grid;
+    grid-template-columns: 30% 70%;
 }
 
 .eslogan {
-    font-weight: bold;
+    font-size: 2.5em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    margin-top: 4%;
+    right: 0%;
 }
 
+.eslogan2 {
+    font-size: 130%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: -3%;
+}
+
+/* ICONOS arriba a la derecha, uno al lado del otro */
 .icons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     display: flex;
-    gap: 15px;
+    gap: 15px; /* espacio entre íconos */
 }
 
-.icons a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+.icons img {
+    width: 30px;  /* tamaño fijo más coherente */
+    height: 30px;
+    cursor: pointer;
 }
 
+/* Botones grandes, centrados y juntos como en la imagen */
 .secciones {
-    padding: 20px;
+    margin-top: 1%; /* espacio bajo el header */
+    text-align: center;
 }
 
 .fila {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
+    justify-content:center;
+    margin-top: 0%;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+.fila button {
+    padding: 32px 70px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
+    width: 480px; /* tamaño fijo para que se vean más grandes */
 }
 
 .ofertas {
@@ -84,7 +94,7 @@ button {
 }
 
 .imagenes-ofertas img {
-    width: 100px;
+    width: 28%;
     height: auto;
 }
 
@@ -98,3 +108,5 @@ footer img {
     width: 30px;
     margin: 0 5px;
 }
+
+

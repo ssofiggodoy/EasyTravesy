@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Paquetes-EasyTravesy</title>
-    </head>
-    <body>
-        <header>
-            <h1>Paquetes</h1>
-            <h3>Elige combos armados y aprovecha mejores precios</h3>
-        </header>
-        <main>
-            <section>
-                <h2>¿A dónde quieres ir?</h2>
-                <ul>
-                    <li>Ingresa un país</li>
-                    <li>Ingresa una ciudad</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Fechas</h2>
-                <ul>
-                    <li>Fecha de entrada</li>
-                    <li>Fecha de salida</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Personas/Habitaciones</h2>
-                <ul>
-                    <li>Cantidad de personas</li>
-                    <li>Cantidad de habitaciones</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Buscar</h2>
-            </section>
-        </main>
-        <footer>
-            <h3>Contactos</h3>
-            <img src="Pictures/facebook.jpg" alt="Facebook">
-            <img src="Pictures/whatsapp.jpg" alt="WhatsApp">
-            <img src="Pictures/instagram.jpg" alt="Instagram">
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Paquetes - EasyTravesy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+            <h1>EasyTravesy</h1>
+        </div>
+        <h2>Paquetes</h2>
+    </header>
+
+    <p class="subtitulo">Elige combos armados y aprovecha mejores precios</p>
+
+    <main class="container">
+        <div class="columna">
+            <h2>¿A dónde quieres ir?</h2>
+            <input type="text" placeholder="Ingresa un país">
+            <input type="text" placeholder="Ingresa una ciudad">
+        </div>
+        <div class="columna">
+            <h2>Fechas</h2>
+            <input type="date" placeholder="Fecha de entrada">
+            <input type="date" placeholder="Fecha de salida">
+        </div>
+        <div class="columna">
+            <h2>Personas/Habitaciones</h2>
+            <input type="number" placeholder="Cantidad de personas">
+            <input type="number" placeholder="Cantidad de habitaciones">
+        </div>
+    </main>
+
+    <button class="boton-buscar">Buscar</button>
+
+    <footer>
+        <h3>Contactos</h3>
+        <img src="Pictures/facebook.jpg" alt="Facebook">
+        <img src="Pictures/whatsapp.jpg" alt="WhatsApp">
+        <img src="Pictures/instagram.jpg" alt="Instagram">
+    </footer>
+</body>
 </html>
