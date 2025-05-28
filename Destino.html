@@ -2,41 +2,48 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Destino - EasyTravesy</title>
         <link rel="stylesheet" href="style.css">
-        <title>Destino-EasyTravesy</title>
+        <script type="text/javascript" src="funciones.js"></script>
     </head>
     <body>
-        <header class="Titulos">
-            <h1>Destino</h1>
-            <h3>Elige tu destino</h3>
+        <header>
+            <div class="logo">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+            <h2 class="titulo">Destino</h2>
         </header>
-        <main>
-            <secion class="uno">
-                <h2>¿A donde quieres ir?</h2>
-                    <input type="text" name="pais" placeholder="Ingresa un pais">
-                    <input type="text" name="ciudad" placeholder="Ingresa una ciudad">
-            </secion>
-            <section class="dos">
+
+        <p class="subtitulo">Elegí tu próximo destino según tus preferencias</p>
+
+        <main class="container">
+            <div class="columna">
+                <h2>¿A dónde quieres ir?</h2>
+                <input type="text" id="pais" placeholder="Ingresa un país">
+                <input type="text" id="ciudad" placeholder="Ingresa una ciudad">
+            </div>
+            <div class="columna">
                 <h2>¿No sabes a dónde ir?</h2>
-                    <li>Selecciona una característica o lugar</li>
-                </ul>
-                <a href="#">Seleccionar opción</a>
-            </section>
-            <section class="tres">
-                <h2>Lugares destacados</h2>
-                <ul>
-                    <li>Puerto Iguazú</li>
-                    <li>Nueva York</li>
-                    <li>Madrid</li>
-                    <li>Río de Janeiro</li>
-                </ul>
-                <a href="#">Ver más</a>
-            </section>
-            <section>
-                <h2>Listo</h2>
-            </section>
+                <select id="caracteristica">
+                    <option value="">Selecciona una característica</option>
+                    <option value="playa">Playa</option>
+                    <option value="montaña">Montaña</option>
+                    <option value="ciudad">Ciudad</option>
+                    <option value="aventura">Aventura</option>
+                </select>
+                <button onclick="mostrarSugerencias()">Buscar una opción</button>
+                <div id="sugerenciasContainer" style="margin-top: 10px;"></div>
+            </div>
+
+            <div class="columna">
+                <h2>Presupuesto estimado</h2>
+                <input type="number" id="presupuesto" placeholder="Presupuesto en dólares">
+            </div>
         </main>
+
+        <button class="boton-buscar" onclick="guardarDestino()">Buscar</button>
+
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">

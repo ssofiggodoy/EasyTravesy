@@ -26,10 +26,12 @@ header {
     grid-template-columns: 30% 70%;
 }
 
+
 .eslogan {
     font-size: 2.5em;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
+    font-style: italic;
     margin-top: 4%;
     right: 0%;
 }
@@ -40,24 +42,22 @@ header {
     margin-top: -3%;
 }
 
-/* ICONOS arriba a la derecha, uno al lado del otro */
 .icons {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 22px;
+    right: 22px;
     display: flex;
-    gap: 15px; /* espacio entre íconos */
+    gap: 15px; 
 }
 
 .icons img {
-    width: 30px;  /* tamaño fijo más coherente */
+    width: 30px; 
     height: 30px;
     cursor: pointer;
 }
 
-/* Botones grandes, centrados y juntos como en la imagen */
 .secciones {
-    margin-top: 1%; /* espacio bajo el header */
+    margin-top: 1%; 
     text-align: center;
 }
 
@@ -109,4 +109,89 @@ footer img {
     margin: 0 5px;
 }
 
+
+.titulo {
+    display: block;
+    color: white;
+    background-color: black;
+    margin: 0 auto 40px auto;
+    padding: 30px 40px;
+    font-size: 2em;
+    margin-right: 61%;
+    margin-top: 5%;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 0px;
+    font-weight: lighter;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+    flex-wrap: wrap;
+}
+
+.columna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 40px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 350px;
+    background-color: #88b5fa;
+}
+
+.columna h2 {
+    font-size: 1.5em;
+    margin-bottom: 27px;
+    margin-top: 0px;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.columna input {
+    margin: 8px 0;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.boton-buscar {
+    display: block;
+    margin: 0 auto 40px auto;
+    padding: 15px 40px;
+    font-size: 18px;
+    background-color:rgb(68, 184, 84);
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.boton-buscar-opcion {
+    padding: 12px;
+    font-size: 15px;
+    background-color: rgb(182, 179, 179);
+    color: rgb(68, 67, 67);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 47%;
+    margin-top: 12%;
+}
+
+.boton-buscar:hover {
+    background-color: #333;
+}
 

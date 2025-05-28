@@ -2,44 +2,44 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alojamiento - EasyTravesy</title>
         <link rel="stylesheet" href="style.css">
-        <title>Alojamiento-EasyTravesy</title>
+        <script type="text/javascript" src="funciones.js"></script>
     </head>
     <body>
         <header>
-            <h1>Alojamiento</h1>
-            <h3>Elige hospedaje y vive tu viaje con comodidad</h3>
+            <div class="logo">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+            <h2 class="titulo">Alojamiento</h2>
         </header>
-        <main>
-            <section>
+
+        <p class="subtitulo">Encontrá el lugar perfecto para tu estadía</p>
+
+        <main class="container">
+            <div class="columna">
                 <h2>Fechas</h2>
-                <ul>
-                    <li>Fecha de entrada</li>
-                    <li>Fecha de salida</li>
-                </ul>
-            </section>
-            <section>
+                <input type="date" id="fechaEntrada" placeholder="Fecha de entrada">
+                <input type="date" id="fechaSalida" placeholder="Fecha de salida">
+            </div>
+            <div class="columna">
                 <h2>Buscar por preferencia</h2>
-                <ul>
-                    <li>Alquileres temporales</li>
-                    <li>Hoteles</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Sugerencias populares</h2>
-                <ul>
-                    <li>Hotel en Bariloche</li>
-                    <li>Cabaña en Mendoza</li>
-                    <li>Resort en Cancún</li>
-                    <li>Hotel en Búzios</li>
-                </ul>
-                <a href="#">Ver más</a>
-            </section>
-            <section>
-                <button>Buscar</button>
-            </section>
+                <label><input type="radio" name="preferencia" id="alquileres" value="otros"> Alquileres temporales</label><br>
+                <label><input type="radio" name="preferencia" id="hoteles" value="hotel"> Hoteles</label>
+            </div>
+            <div class="columna">
+                <h2>Personas/Habitaciones</h2>
+                <input type="number" id="personas" min="1" placeholder="Cantidad de personas">
+                <input type="number" id="habitaciones" min="1" placeholder="Cantidad de habitaciones">
+            </div>
+            <div>
+                
+            </div>
         </main>
+
+        <button class="boton-buscar" onclick="guardarSeccion('alojamiento', ['fechaEntrada', 'fechaSalida', 'preferencia', 'personas', 'habitaciones'], ['Hotel Sol', 'Departamento céntrico', 'Hostel barato'])">Buscar</button>
+
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">

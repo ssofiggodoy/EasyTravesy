@@ -2,42 +2,45 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Autos - EasyTravesy</title>
         <link rel="stylesheet" href="style.css">
-        <title>Autos-EasyTravesy</title>
+        <script type="text/javascript" src="funciones.js"></script>
     </head>
     <body>
         <header>
-            <h1>Autos</h1>
-            <h3>Elige el auto ideal para moverte con libertad</h3>
+            <div class="logo">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+            <h2 class="titulo">Autos</h2>
         </header>
-        <main>
-            <section>
+
+        <p class="subtitulo">Alquilá el auto ideal para tu viaje</p>
+
+        <main class="container">
+            <div class="columna">
                 <h2>Retiro/Devolución</h2>
-                <ol>
-                    <li>Lugar de retiro</li>
-                    <li>Lugar de devolución</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Fechas/horarios</h2>
-                <ol>
-                    <li>Fecha y hora de retiro</li>
-                    <li>Fecha y hora de devolución</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Tipo de auto</h2>
-                <ol>
-                    <li>Económico</li>
-                    <li>SUV</li>
-                    <li>Familiar</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Buscar</h2>
-            </section>
+                <input id="lugarRetiro" type="text" placeholder="Lugar de retiro">
+                <input id="lugarDevolucion" type="text" placeholder="Lugar de devolución">
+            </div>
+            <div class="columna">
+                <h2>Fechas/Horarios</h2>
+                <input id="fechaRetiro" type="date" min="2025-5-28" placeholder="Fecha de retiro">
+                <input id="fechaDevolucion" type="date" placeholder="Fecha de devolución">
+            </div>
+            <div class="columna">
+                <h2>Tipo de vehículo</h2>
+                <input id="tipoAuto" type="text" placeholder="Ingresá tipo de auto">
+            </div>
         </main>
+
+        <button class="boton-buscar"
+    onclick="guardarSeccion(
+        'autos',
+        ['fechaRetiroAuto', 'fechaDevolucionAuto', 'tipoAuto'],
+        ['Sedán económico - Toyota Yaris', 'SUV mediana - Ford EcoSport', 'Auto eléctrico - Tesla Model 3']
+    )">Buscar</button>
+
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">

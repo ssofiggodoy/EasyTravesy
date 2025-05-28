@@ -2,42 +2,64 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Actividades - EasyTravesy</title>
         <link rel="stylesheet" href="style.css">
-        <title>Actividades-EasyTravesy</title>
+        <script type="text/javascript" src="funciones.js"></script>
     </head>
     <body>
         <header>
-            <h1>Actividades</h1>
-            <h3>Vive experiencias únicas en cada destino</h3>
+            <div class="logo">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+            <h2 class="titulo">Actividades</h2>
         </header>
-        <main>
-            <section>
-                <h2>Tipo de actividad</h2>
-                <ol>
-                    <li>Excursión</li>
-                    <li>Deportes</li>
-                    <li>Tour cultural</li>
-                </ol>
-            </section>
-            <section>
+
+        <p class="subtitulo">Elegí experiencias únicas según tus intereses y fechas</p>
+
+        <main class="container">
+            <div class="columna">
                 <h2>Duración</h2>
-                <ol>
-                    <li>Menos de 2 hora</li>
-                    <li>Entre 2 y 5 horas</li>
-                    <li>Más de 6 horas</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Ubicación o destino</h2>
-                <ol>
-                    <li>Buscar por ciudad o país</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Buscar</h2>
-            </section>
+                <select id="duracionActividad">
+                    <option disabled selected>Seleccioná duración</option>
+                    <option>1-2 horas</option>
+                    <option>3-5 horas</option>
+                    <option>Medio día</option>
+                    <option>Día completo</option>
+                    <option>Más de un día</option>
+                </select>
+            </div>
+            <div class="columna">
+                <h2>Tipo de actividad</h2>
+                <select id="tipoActividad">
+                    <option disabled selected>Seleccioná una opción</option>
+                    <option>Aventura</option>
+                    <option>Cultura</option>
+                    <option>Relax</option>
+                    <option>Naturaleza</option>
+                    <option>Gastronómica</option>
+                </select>
+            </div>
+            <div class="columna">
+                <h2>¿Qué personas?</h2>
+                <select id="personasActividad">
+                    <option disabled selected>Seleccioná una opción</option>
+                    <option>Solo</option>
+                    <option>Pareja</option>
+                    <option>Familia</option>
+                    <option>Amigos</option>
+                </select>
+            </div>
         </main>
+
+        <button class="boton-buscar"
+    onclick="guardarSeccion(
+        'actividades',
+        ['duracionActividad', 'tipoActividad', 'personasActividad'],
+        ['Rafting en Mendoza', 'Clase de cocina italiana', 'Trekking por el Fitz Roy', 'Tour cultural por Cusco']
+    )">Buscar</button>
+
+
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">

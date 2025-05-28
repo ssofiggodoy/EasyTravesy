@@ -2,41 +2,51 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vuelos - EasyTravesy</title>
         <link rel="stylesheet" href="style.css">
-        <title>Vuelos-EasyTravesy</title>
+        <script type="text/javascript" src="funciones.js" defer></script>
     </head>
     <body>
         <header>
-            <h1>Vuelos</h1>
-            <h3>Encuentra el mejor vuelo a tu destino</h3>
+            <div class="logo">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+            <h2 class="titulo">Vuelos</h2>
         </header>
-        <main>
-            <section>
-                <h2>Ida/Vuelta</h2>
-                <ol>
-                    <li>Lugar de origen</li>
-                    <li>Lugar de destino</li>
-                </ol>
-            </section>
-            <section>
+
+        <p class="subtitulo">Encontrá las mejores opciones de vuelo para tu viaje</p>
+
+        <main class="container">
+            <div class="columna">
+                <h2>Origen y destino</h2>
+                <input id="origen" type="text" placeholder="Ciudad de origen">
+                <input id="destino" type="text" placeholder="Ciudad de destino">
+            </div>
+            <div class="columna">
                 <h2>Fechas</h2>
-                <ol>
-                    <li>Fecha de ida</li>
-                    <li>Fecha de vuelta (opcional)</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Personas/Clase</h2>
-                <ol>
-                    <li>Cantidad de personas</li>
-                    <li>Seleccionar clase</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Buscar</h2>
-            </section>
+                <input id="ida" type="date">
+                <input id="vuelta" type="date">
+            </div>
+            <div class="columna">
+                <h2>Pasajeros / Clase</h2>
+                <input id="pasajeros" type="number" placeholder="Cantidad de pasajeros">
+                <select id="clase">
+                    <option value="">Selecciona clase</option>
+                    <option value="economica">Económica</option>
+                    <option value="ejecutiva">Ejecutiva</option>
+                    <option value="primera">Primera</option>
+                </select>
+            </div>
         </main>
+
+        <button class="boton-buscar"
+    onclick="guardarSeccion(
+        'vuelos',
+        ['origenVuelo', 'destinoVuelo', 'fechaIdaVuelo', 'fechaVueltaVuelo', 'claseVuelo'],
+        ['Vuelo directo a París', 'Vuelo con escala en Madrid', 'Vuelo económico a Roma']
+    )">Buscar</button>
+
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">
