@@ -195,3 +195,160 @@ footer img {
     background-color: #333;
 }
 
+/* -------------------------
+   ESTILOS EXCLUSIVOS PARA RESULTADOS
+------------------------- */
+
+.pagina-resultados main.container {
+    padding: 20px 40px;
+    background-color: #f9f9f9;
+}
+
+.pagina-resultados #filtros-usados {
+    margin-bottom: 30px;
+    width: 45%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #88b5fa;
+}
+
+.pagina-resultados #filtros-usados h3,
+.pagina-resultados #opciones h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.4rem;
+}
+
+.pagina-resultados #datosFiltro {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.pagina-resultados #datosFiltro li {
+    padding: 6px 12px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.pagina-resultados #opciones {
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 30px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #88b5fa;
+}
+
+.pagina-resultados .resultados {
+    margin-top: 15px;
+    display: grid;
+    
+}
+
+.pagina-resultados .resultados p {
+    background-color: #e3f2fd;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #2c3e50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagina-resultados .titulo {
+    display: block;
+    color: white;
+    background-color: black;
+    margin: 0 auto 40px auto;
+    padding: 30px 40px;
+    font-size: 2em;
+    margin-right: 50%;
+    margin-top: 5%;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+
+
+.logoperfil img {
+    width: 57%;
+    height: auto;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+
+.logoperfil h1 {
+    height: 45%;
+    font-size: 85%;
+    margin-left: 24%;
+    margin-top: 0%;
+    font-weight:bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.pagina-perfil main {
+    padding: 20px;
+    max-width: 800px;
+    margin-left: 23%;
+}
+
+.pagina-perfil h2 {
+    text-align: center;
+    display: block;
+    color: white;
+    background-color: black;
+    margin: 0 auto 40px auto;
+    padding: 30px 40px;
+    font-size: 2em;
+    margin-left: 27%;
+    margin-top: -17%;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 33%;
+}
+
+.bloque-seccion {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+}
+
+.bloque-seccion h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.bloque-seccion ul {
+    padding-left: 20px;
+}
+
+.bloque-seccion li {
+    margin-bottom: 5px;
+}
+
+.pagina-perfil .botones-perfil {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagina-perfil .botones-perfil button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pagina-perfil .botones-perfil button:hover {
+    background-color: #005fa3;
+}

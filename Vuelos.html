@@ -20,18 +20,18 @@
         <main class="container">
             <div class="columna">
                 <h2>Origen y destino</h2>
-                <input id="origen" type="text" placeholder="Ciudad de origen">
-                <input id="destino" type="text" placeholder="Ciudad de destino">
+                <input id="origenVuelo" type="text" placeholder="Ciudad de origen">
+                <input id="destinoVuelo" type="text" placeholder="Ciudad de destino">
             </div>
             <div class="columna">
                 <h2>Fechas</h2>
-                <input id="ida" type="date">
-                <input id="vuelta" type="date">
+                <input id="fechaIdaVuelo" type="date">
+                <input id="fechaVueltaVuelo" type="date">
             </div>
             <div class="columna">
                 <h2>Pasajeros / Clase</h2>
-                <input id="pasajeros" type="number" placeholder="Cantidad de pasajeros">
-                <select id="clase">
+                <input id="pasajerosVuelo" type="number" placeholder="Cantidad de pasajeros">
+                <select id="claseVuelo">
                     <option value="">Selecciona clase</option>
                     <option value="economica">Económica</option>
                     <option value="ejecutiva">Ejecutiva</option>
@@ -43,7 +43,7 @@
         <button class="boton-buscar"
     onclick="guardarSeccion(
         'vuelos',
-        ['origenVuelo', 'destinoVuelo', 'fechaIdaVuelo', 'fechaVueltaVuelo', 'claseVuelo'],
+        ['origenVuelo', 'destinoVuelo', 'fechaIdaVuelo', 'fechaVueltaVuelo', 'pasajerosVuelo', 'claseVuelo'],
         ['Vuelo directo a París', 'Vuelo con escala en Madrid', 'Vuelo económico a Roma']
     )">Buscar</button>
 

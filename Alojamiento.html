@@ -25,8 +25,8 @@
             </div>
             <div class="columna">
                 <h2>Buscar por preferencia</h2>
-                <label><input type="radio" name="preferencia" id="alquileres" value="otros"> Alquileres temporales</label><br>
-                <label><input type="radio" name="preferencia" id="hoteles" value="hotel"> Hoteles</label>
+                <label><input type="radio" name="preferencia" id="preferencia" value="otros"> Alquileres temporales</label><br>
+                <label><input type="radio" name="preferencia" value="hotel"> Hoteles</label>
             </div>
             <div class="columna">
                 <h2>Personas/Habitaciones</h2>
@@ -38,8 +38,13 @@
             </div>
         </main>
 
-        <button class="boton-buscar" onclick="guardarSeccion('alojamiento', ['fechaEntrada', 'fechaSalida', 'preferencia', 'personas', 'habitaciones'], ['Hotel Sol', 'Departamento céntrico', 'Hostel barato'])">Buscar</button>
-
+        <button class="boton-buscar"
+    onclick="guardarSeccion(
+        'alojamiento',
+        ['fechaEntrada', 'fechaSalida', 'preferencia', 'personas', 'habitaciones'],
+        ['Hotel Sol', 'Departamento céntrico', 'Hostel barato']
+    )">Buscar</button>
+    
         <footer>
             <h3>Contactos</h3>
             <img src="Pictures/facebook.jpg" alt="Facebook">

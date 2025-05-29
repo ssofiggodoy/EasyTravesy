@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mi Perfil - EasyTravesy</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="pagina-perfil">
+        <header>
+            <div class="logoperfil">
+                <img src="Pictures/globo con avion.webp" alt="Logo EasyTravesy">
+                <h1>EasyTravesy</h1>
+            </div>
+        </header>
+
+        <main>
+            <h2>Mi Plan de Viaje</h2>
+            <div id="contenedorPerfil"></div>
+
+            <div class="botones-perfil">
+                <button onclick="window.location.href='index.html'">🏠 Volver al inicio</button>
+                <button onclick="window.location.href='resultados.html'">✏️ Modificar plan</button>
+                <button onclick="borrarPlan()">🧹 Borrar plan</button>
+                <button onclick="crearNuevoPlan()">🆕 Hacer un nuevo plan</button>
+            </div>
+    </main>
+        </main>
+
+        <footer>
+            <h3>Contactos</h3>
+            <img src="Pictures/facebook.jpg" alt="Facebook">
+            <img src="Pictures/whatsapp.jpg" alt="WhatsApp">
+            <img src="Pictures/instagram.jpg" alt="Instagram">
+        </footer>
+
+        <script src="funciones.js"></script>
+        <script>
+            mostrarPerfil();
+
+            function borrarPlan() {
+                if (confirm("¿Estás seguro de que querés borrar tu plan actual?")) {
+                    localStorage.removeItem("datosEasyTravesy");
+                    localStorage.removeItem("datosBusqueda");
+                    alert("Plan borrado correctamente.");
+                    location.reload();
+                }
+            }
+
+            function crearNuevoPlan() {
+                localStorage.removeItem("datosEasyTravesy");
+                localStorage.removeItem("datosBusqueda");
+                window.location.href = "index.html";
+            }
+        </script>
+    </body>
+</html>

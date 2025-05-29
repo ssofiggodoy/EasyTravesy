@@ -13,8 +13,6 @@ let datos = {
 window.onload = function () {
     const datosGuardados = localStorage.getItem("datosEasyTravesy");
     if (datosGuardados) datos = JSON.parse(datosGuardados);
-
-    mostrarFiltrosYResultados(); // Solo tiene efecto en resultados.html
 };
 
 // ----------------------------
@@ -60,80 +58,170 @@ function mostrarSugerencias() {
     }
 }
 
-// ----------------------------
-// FUNCIÓN GENÉRICA PARA OTRAS SECCIONES
-// ----------------------------
 function guardarSeccion(seccion, campos, sugerencias) {
     const datosSeccion = {};
-    for (let id of campos) {
-        const elemento = document.getElementById(id);
-        if (!elemento || elemento.value === "") {
-            alert("Por favor, completá todos los campos.");
+    let faltantes = [];
+
+    campos.forEach(id => {
+        const elem = document.getElementById(id);
+        if (!elem) {
+            faltantes.push(id);
             return;
         }
-        datosSeccion[id] = elemento.value;
+
+        if (elem.type === "radio") {
+            const seleccionado = document.querySelector(`input[name="${elem.name}"]:checked`);
+            if (seleccionado) {
+                datosSeccion[id] = seleccionado.value;
+            } else {
+                faltantes.push(id);
+            }
+        } else {
+            const valor = elem.value.trim();
+            if (valor !== "") {
+                datosSeccion[id] = valor;
+            } else {
+                faltantes.push(id);
+            }
+        }
+    });
+
+    if (faltantes.length > 0) {
+        alert("Por favor, completá todos los campos.");
+        return;
     }
 
     datos[seccion] = datosSeccion;
     localStorage.setItem("datosEasyTravesy", JSON.stringify(datos));
-    localStorage.setItem("seccionActual", seccion);
-    localStorage.setItem("sugerencias", JSON.stringify(sugerencias));
+
+    // ⚠️ Guardamos lo que necesita mostrarResultado()
+    localStorage.setItem("datosBusqueda", JSON.stringify({
+        seccion: seccion,
+        filtros: datosSeccion,
+        opciones: sugerencias
+    }));
 
     window.location.href = "resultados.html";
 }
 
-// ----------------------------
-// RESULTADOS
-// ----------------------------
-function mostrarFiltrosYResultados() {
-    const seccion = localStorage.getItem("seccionActual");
-    if (!seccion || !datos[seccion]) return;
 
-    const ul = document.getElementById("datosFiltro") || document.getElementById("Datosfiltro");
-    const container = document.getElementById(`resultados${capitalize(seccion)}`);
-    const info = datos[seccion];
+function mostrarResultado() {
+    const busqueda = JSON.parse(localStorage.getItem("datosBusqueda"));
+    if (!busqueda || !busqueda.seccion || !busqueda.filtros) {
+        document.getElementById("datosFiltro").innerHTML = "<li>No se encontraron datos de búsqueda.</li>";
+        return;
+    }
 
-    if (ul) {
-        ul.innerHTML = "";
-        for (const campo in info) {
+    const { seccion, filtros, opciones } = busqueda;
+
+    // Mostrar filtros
+    const listaFiltros = document.getElementById("datosFiltro");
+    listaFiltros.innerHTML = "";
+    for (const clave in filtros) {
+        if (filtros[clave]) {
             const li = document.createElement("li");
-            li.textContent = `${formatearCampo(campo)}: ${info[campo]}`;
-            ul.appendChild(li);
+            li.textContent = `${formatearClave(clave)}: ${filtros[clave]}`;
+            listaFiltros.appendChild(li);
         }
     }
 
-    if (container) {
-        const sugerencias = JSON.parse(localStorage.getItem("sugerencias")) || [];
-        container.innerHTML = "";
-        sugerencias.forEach(opcion => {
-            const div = document.createElement("div");
-            div.className = "opcion";
-            div.innerHTML = `<p>${opcion}</p><button onclick="seleccionarOpcion('${seccion}', '${opcion}')">Seleccionar</button>`;
-            container.appendChild(div);
+    // Mostrar resultados sugeridos
+    const divResultados = document.getElementById("resultados" + capitalizar(seccion));
+    if (divResultados) {
+        divResultados.innerHTML = "";
+        opciones.forEach(opcion => {
+            const boton = document.createElement("button");
+            boton.textContent = opcion;
+            boton.className = "boton-opcion"; 
+            boton.onclick = () => {
+              datos[seccion] = { seleccion: opcion };
+              localStorage.setItem("datosEasyTravesy", JSON.stringify(datos));
+              alert(`Seleccionaste: ${opcion}`);
+              window.location.href = "index.html";
+          };
+
+            divResultados.appendChild(boton);
         });
     }
 }
 
-function seleccionarOpcion(seccion, opcionElegida) {
-    datos[seccion].seleccion = opcionElegida;
-    localStorage.setItem("datosEasyTravesy", JSON.stringify(datos));
-    localStorage.removeItem("seccionActual");
-    localStorage.removeItem("sugerencias");
-    window.location.href = "index.html";
-}
-
-// ----------------------------
-// UTILIDADES
-// ----------------------------
-function capitalize(texto) {
+function capitalizar(texto) {
     return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
-function formatearCampo(campo) {
-    return campo
-        .replace(/([A-Z])/g, " $1")
-        .replace(/^./, str => str.toUpperCase());
+function formatearClave(clave) {
+    const map = {
+        // Paquetes
+        paisPaquete: "País",
+        ciudadPaquete: "Ciudad",
+        fechaEntradaPaquete: "Fecha de entrada",
+        fechaSalidaPaquete: "Fecha de salida",
+        personasPaquete: "Personas",
+        habitacionesPaquete: "Habitaciones",
+
+        // Destinos (si los usás)
+        paisDestino: "País",
+        ciudadDestino: "Ciudad",
+
+        // Vuelos
+        origenVuelo: "Origen",
+        destinoVuelo: "Destino",
+        fechaIdaVuelo: "Fecha de ida",
+        fechaVueltaVuelo: "Fecha de vuelta",
+        claseVuelo: "Clase",
+
+        // Autos
+        lugarRetiro: "Lugar de retiro",
+        lugarDevolucion: "Lugar de devolución",
+        fechaRetiroAuto: "Fecha de retiro",
+        fechaDevolucionAuto: "Fecha de devolución",
+        tipoAuto: "Tipo de auto",
+
+        // Actividades
+        duracionActividad: "Duración",
+        tipoActividad: "Tipo",
+        personasActividad: "Personas"
+    };
+
+    return map[clave] || clave;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarResultado();
+});
+
+
+function mostrarPerfil() {
+    const datosGuardados = JSON.parse(localStorage.getItem("datosEasyTravesy"));
+    const contenedor = document.getElementById("contenedorPerfil");
+
+    if (!datosGuardados) {
+        contenedor.innerHTML = "<p>No hay datos guardados.</p>";
+        return;
+    }
+
+    contenedor.innerHTML = ""; // Limpiamos antes
+
+    for (const seccion in datosGuardados) {
+        const datosSeccion = datosGuardados[seccion];
+        if (datosSeccion) {
+            const div = document.createElement("div");
+            div.classList.add("bloque-seccion");
+            div.innerHTML = `<h3>${capitalizar(seccion)}</h3><ul></ul>`;
+
+            const ul = div.querySelector("ul");
+
+            for (const clave in datosSeccion) {
+                const li = document.createElement("li");
+                li.textContent = `${formatearClave(clave)}: ${datosSeccion[clave]}`;
+                ul.appendChild(li);
+            }
+
+            contenedor.appendChild(div);
+        }
+    }
+}
+
 
 // const opcionesViaje = [
 //   { titulo: "Santorini", tipo: "playa", alojamiento: "hotel" },
