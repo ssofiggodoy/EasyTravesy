@@ -39,17 +39,52 @@
                 </div>
             </section>
 
-            <aside class="ofertas">
+            <section class="ofertas-easytravesy">
                 <h2>Ofertas EasyTravesy</h2>
-                <div class="imagenes-ofertas">
-                    <img src="Pictures/cataratas-iguazu-panoramica-1.jpg" alt="Oferta 1">
-                    <a href="#">Ver más</a>
-                    <img src="Pictures/42fb6908-dcd5-4edb-9f8c-76208494af80.avif" alt="Oferta 2">
-                    <a href="#">Ver más</a>
-                    <img src="Pictures/R.jpg" alt="Oferta 3">
-                    <a href="#">Ver más</a>
+
+                <div class="oferta">
+                    <img src="Pictures/oferta cancún.jpg" class="imagenes-ofertas" alt="Cancún">
+                    <h3>Paquete Cancún</h3>
+                    <button onclick="mostrarDetalles(this)">Ver más</button>
+                    <div class="detalles-oferta">
+                        <p><strong>Destino:</strong> Cancún, México</p>
+                        <p><strong>Duración:</strong> 7 días / 6 noches</p>
+                        <p><strong>Alojamiento:</strong> Hotel All-Inclusive 4★</p>
+                        <p><strong>Incluye:</strong> Vuelos + Hotel + Traslados</p>
+                        <p><strong>Precio:</strong> USD 950 por persona</p>
+                    </div>
+                    <button onclick="agregarOferta(this)">Agregar a mi plan</button>
                 </div>
-            </aside>
+
+                <div class="oferta">
+                    <img src="Pictures/oferta Bariloche.jpg" class="imagenes-ofertas" alt="Bariloche">
+                    <h3>Escapada a Bariloche</h3>
+                    <button onclick="mostrarDetalles(this)">Ver más</button>
+                    <div class="detalles-oferta">
+                        <p><strong>Destino:</strong> Bariloche, Argentina</p>
+                        <p><strong>Duración:</strong> 4 días / 3 noches</p>
+                        <p><strong>Alojamiento:</strong> Cabaña con vista al lago</p>
+                        <p><strong>Incluye:</strong> Alquiler de auto + Alojamiento</p>
+                        <p><strong>Precio:</strong> ARS 180.000</p>
+                    </div>
+                    <button onclick="agregarOferta(this)">Agregar a mi plan</button>
+                </div>
+
+                <div class="oferta">
+                    <img src="Pictures/oferta Tokio.jpg" class="imagenes-ofertas" alt="Tokio">
+                    <h3>Viaje a Tokio</h3>
+                    <button onclick="mostrarDetalles(this)">Ver más</button>
+                    <div class="detalles-oferta">
+                        <p><strong>Destino:</strong> Tokio, Japón</p>
+                        <p><strong>Duración:</strong> 10 días / 9 noches</p>
+                        <p><strong>Alojamiento:</strong> Departamento céntrico</p>
+                        <p><strong>Incluye:</strong> Vuelos + Alojamiento</p>
+                        <p><strong>Precio:</strong> USD 1800</p>
+                    </div>
+                    <button onclick="agregarOferta(this)">Agregar a mi plan</button>
+                </div>
+            </section>
+
         </main>
 
         <footer>
@@ -58,5 +93,30 @@
             <img src="Pictures/whatsapp.jpg" alt="WhatsApp">
             <img src="Pictures/instagram.jpg" alt="Instagram">
         </footer>
+
+        <script>
+        function mostrarDetalles(boton) {
+            const detalles = boton.nextElementSibling;
+            const visible = detalles.style.display === "block";
+            detalles.style.display = visible ? "none" : "block";
+            boton.textContent = visible ? "Ver más" : "Ver menos";
+            }
+
+        function agregarOferta(boton) {
+            const contenedor = boton.closest(".oferta");
+            const nombre = contenedor.querySelector("h3")?.textContent || "Oferta sin nombre";
+            const detalles = Array.from(contenedor.querySelectorAll(".detalles-oferta p"))
+                .map(p => p.textContent);
+
+            datos.oferta = {
+                nombre: nombre,
+                detalles: detalles
+            };
+
+            localStorage.setItem("datosEasyTravesy", JSON.stringify(datos));
+            alert(`Oferta "${nombre}" agregada a tu plan.`);
+            window.location.href = "index.html";
+        }
+        </script>
     </body>
 </html>

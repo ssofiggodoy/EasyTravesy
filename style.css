@@ -7,9 +7,9 @@ body {
 
 .logo h1 {
     height: 45%;
-    font-size: 85%;
+    font-size: 90%;
     margin-left: 24%;
-    margin-top: 0%;
+    margin-top: -2%;
     font-weight:bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -77,26 +77,67 @@ header {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    width: 480px; /* tamaño fijo para que se vean más grandes */
+    width: 480px; 
 }
 
-.ofertas {
-    padding: 20px;
+.ofertas-easytravesy {
+    text-align: center;
+    padding: 40px 20px;
 }
 
-.ofertas h2 {
+.ofertas-easytravesy h2 {
+    text-align: left;
+    margin-left: 1%;
+    margin-top: 0%;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.oferta {
+    display: inline-block;
+    width: 280px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.oferta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.oferta h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.oferta button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
     margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-.imagenes-ofertas {
-    display: flex;
-    justify-content: space-around;
+.oferta button:hover {
+    background-color: #005fa3;
 }
 
-.imagenes-ofertas img {
-    width: 28%;
-    height: auto;
+.detalles-oferta {
+    display: none;
+    text-align: left;
+    padding: 0 15px 15px 15px;
+    font-size: 14px;
+    background-color: #eef7ff;
 }
+
 
 footer {
     background-color: #f0f0f0;
@@ -342,13 +383,13 @@ footer img {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
-    background-color: #0077cc;
-    color: white;
+    background-color: #88b5fa;
+    color: black;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .pagina-perfil .botones-perfil button:hover {
-    background-color: #005fa3;
+    background-color: #88b5fa;
 }

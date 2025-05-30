@@ -211,16 +211,31 @@ function mostrarPerfil() {
 
             const ul = div.querySelector("ul");
 
-            for (const clave in datosSeccion) {
-                const li = document.createElement("li");
-                li.textContent = `${formatearClave(clave)}: ${datosSeccion[clave]}`;
-                ul.appendChild(li);
+            // 🔹 Mostrar ofertas de forma especial
+            if (seccion === "oferta" && datosSeccion.nombre && datosSeccion.detalles) {
+                const liNombre = document.createElement("li");
+                liNombre.textContent = `Nombre: ${datosSeccion.nombre}`;
+                ul.appendChild(liNombre);
+
+                datosSeccion.detalles.forEach((detalle, i) => {
+                    const li = document.createElement("li");
+                    li.textContent = `Detalle ${i + 1}: ${detalle}`;
+                    ul.appendChild(li);
+                });
+            } else {
+                // 🔸 Mostrar cualquier otra sección como antes
+                for (const clave in datosSeccion) {
+                    const li = document.createElement("li");
+                    li.textContent = `${formatearClave(clave)}: ${datosSeccion[clave]}`;
+                    ul.appendChild(li);
+                }
             }
 
             contenedor.appendChild(div);
         }
     }
 }
+
 
 
 // const opcionesViaje = [
